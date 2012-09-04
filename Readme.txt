@@ -1,0 +1,1 @@
+The NameMaker project is designed to generate random names.
