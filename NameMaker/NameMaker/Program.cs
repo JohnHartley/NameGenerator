@@ -23,20 +23,51 @@ namespace NameMaker
 				return;
 			}
 			
-			int count=0;
+			int count = 10;
+			string format = "[FirstName][space][LastName]";  // standard format
+			int index=0;
 			// Scan Arguments
-			if(args[0].ToUpper().StartsWith("/C:"))
+			while(index < args.Length)
 			{
-				string countStr = args[0].Substring(3);
-				Int32.TryParse(countStr,out count);
+				
+				if(args[index].ToUpper().StartsWith("/C:"))   // Count parameter
+				{
+					string countStr = args[0].Substring(3);
+					Int32.TryParse(countStr,out count);
+				}
+				else if (args[index].ToUpper().StartsWith("/F:"))  // Format parameter
+				{
+					format = args[index].Substring(3);
+				}
+				else if (args[index].ToUpper().StartsWith("/H"))  // Format parameter
+				{
+					help();
+					return;
+				}
+				else
+				{
+					Console.WriteLine("Unknown argument");
+					return;
+				}
+				
+				index++;
 			}
 			
 			NameRandomiser nameMaker = new NameRandomiser();
 			string [] name;
+			
+			NameRandomiser.FormatElement[] formatList;
+			formatList = nameMaker.checkFormat(format);
+			if(formatList == null)
+			{
+				Console.WriteLine("Invalid format '"+format+"'");
+				return;
+			}
+			
 			for(int i=0; i < count; i++)
 			{
 				name = nameMaker.randomName(NameRandomiser.Gender.either);
-				Console.WriteLine(name[0]+" "+name[1]);
+				Console.WriteLine(nameMaker.applyFormat(name,formatList));
 			}
 			
 		}
@@ -44,7 +75,18 @@ namespace NameMaker
 		{
 			Console.WriteLine("Name Maker");
 			Console.WriteLine("");
-			Console.WriteLine("NAMEMAKER /C:runs");
+			Console.WriteLine("NAMEMAKER [/C:runs][/F:format]");
+			Console.WriteLine("");
+			Console.WriteLine("Where runs is the number names to generate");
+			Console.WriteLine("Where format may consist of the folowing items:");
+			Console.WriteLine("Formatting options:");
+			Console.WriteLine("[FirstName]   First (given) name");
+			Console.WriteLine("[LastName]    Last (family) name");
+			Console.WriteLine("[FI]          First Initial");
+			Console.WriteLine("[LI]          Last Initial");
+			Console.WriteLine("[space]       Space character");
+			Console.WriteLine("[comma]       ,");
+			Console.WriteLine("[tab]         Tab character");
 		}
 	}
 }
