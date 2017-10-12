@@ -14,6 +14,8 @@ namespace NameMaker
 {
 	class Program
 	{
+		public static string defaultFormat = "[FirstName][space][LastName]";  // standard format
+		
 		public static void Main(string[] args)
 		{
 			
@@ -24,7 +26,7 @@ namespace NameMaker
 			}
 			
 			int count = 10;
-			string format = "[FirstName][space][LastName]";  // standard format
+			
 			int index=0;
 			// Scan Arguments
 			while(index < args.Length)
@@ -37,7 +39,7 @@ namespace NameMaker
 				}
 				else if (args[index].ToUpper().StartsWith("/F:"))  // Format parameter
 				{
-					format = args[index].Substring(3);
+					defaultFormat = args[index].Substring(3);
 				}
 				else if (args[index].ToUpper().StartsWith("/H"))  // Format parameter
 				{
@@ -57,10 +59,10 @@ namespace NameMaker
 			string [] name;
 			
 			NameRandomiser.FormatElement[] formatList;
-			formatList = nameMaker.checkFormat(format);
+			formatList = nameMaker.checkFormat(defaultFormat);
 			if(formatList == null)
 			{
-				Console.WriteLine("Invalid format '"+format+"'");
+				Console.WriteLine("Invalid format '"+defaultFormat+"'");
 				return;
 			}
 			
@@ -87,6 +89,8 @@ namespace NameMaker
 			Console.WriteLine("[space]       Space character");
 			Console.WriteLine("[comma]       ,");
 			Console.WriteLine("[tab]         Tab character");
+			Console.WriteLine("");
+			Console.WriteLine("Default format is {0}",defaultFormat);
 		}
 	}
 }

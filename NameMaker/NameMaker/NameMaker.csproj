@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <NoWin32Manifest>False</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -30,7 +31,7 @@
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <StartAction>Project</StartAction>
-    <StartArguments>/c:1000 /f:[LastName][comma][FirstName]</StartArguments>
+    <StartArguments>/c:100000 /f:[LastName][comma][space][FirstName]</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -64,8 +65,8 @@
     <Compile Include="Tests\TestNameRandomiser.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Readme.txt">
-      <Link>Readme.txt</Link>
+    <None Include="..\..\Readme.md">
+      <Link>Readme.md</Link>
     </None>
     <None Include="female.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
