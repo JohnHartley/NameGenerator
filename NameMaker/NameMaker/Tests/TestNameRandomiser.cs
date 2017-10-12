@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace NameMaker
@@ -20,6 +21,20 @@ namespace NameMaker
 			NameRandomiser nr = new NameRandomiser();
 			string []  name= nr.randomName(NameMaker.NameRandomiser.Gender.either);
 			Assert.AreEqual(name.Length,2,"Two strings expected");
+			Console.WriteLine("Random name is '{0} {1}'",name[0],name[1]);
+		}
+		
+		[Test]
+		public void RandomNames()
+		{
+			const int target = 1000000;
+			List<string[]> names = new List<string[]>(target);
+			NameRandomiser nr = new NameRandomiser();
+			for (int i = 0; i < target; i++) {
+				names.Add(nr.randomName(NameMaker.NameRandomiser.Gender.either));
+			}
+//			foreach(var n in names)
+//				Console.WriteLine("Random name is '{0} {1}'",n[0],n[1]);
 		}
 		
 		[Test]
