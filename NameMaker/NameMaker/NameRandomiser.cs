@@ -78,7 +78,8 @@ namespace NameMaker
 		
 		public string applyFormat(string[] name,FormatElement[] format)
 		{
-			System.Diagnostics.Debug.Assert(name.Length == 2);
+			if(name == null) name = randomName();
+			System.Diagnostics.Debug.Assert(name.Length == 2,"Expecting a name as a two element string array");
 			string firstName = name[0];
 			string lastname = name[1];
 			string result = "";
@@ -109,6 +110,9 @@ namespace NameMaker
 			return randomName(Gender.either);
 		}
 		
+		/// <summary>Generates a random name</summary>
+		/// <param name="gender">Specify </param>
+		/// <returns>Two element string array with element[0] as First Name and element[1] containing the last name or surname.</returns>
 		public string [] randomName(Gender gender)
 		{
 			string [] name = new string[2];
