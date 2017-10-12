@@ -1,20 +1,28 @@
 # NameMaker
-## The NameMaker project is designed to generate random names to use for testing.
+*The NameMaker project is designed to generate random names to use for testing.*
 
+**NAMEMAKER `[/C:runs][/F:format]`**
+Where runs is the number names to generate
+Where format may consist of the folowing items:
 
 Formatting options:
-[FirstName]   First (given) name
-[LastName]    Last (family) name
-[FI]          First Initial
-[LI]          Last Initial
-[space]       Space character
-[comma]       ,
-[tab]         Tab character
+`[FirstName]`   First (given) name
+`[LastName]`    Last (family) name
+`[FI]`          First Initial
+`[LI]`          Last Initial
+`[space]`       Space character
+`[comma]`       ,
+`[tab]`         Tab character
 
 **Examples:**
 
-This command line produces a thousand random names
+This command line produces a thousand random names to the console
+
 NAMEMAKER /c:1000
+
+NAMEMAKER /c:1000 /f:[LastName][comma][space][FirstName]
+
+Produces a thousand random names to the console in the format *lastName, firstName*
 
 Name Lists Copyright Mark Kantrowitz.
 
@@ -28,7 +36,9 @@ Name Lists Copyright Mark Kantrowitz.
 
 ## Release Notes
 -------------
-2017-10-12 Documentation Update
+2017-10-12  Version 0.2 
+* First Prerelease
+* Documentation Update
 
 Version 0.2, 
 * Skip Lines beginning with # and blank lines in names files
@@ -36,7 +46,7 @@ Version 0.2,
 * Formatting of names added with the /f switch
 
 Version 0.1, 5 September 2012
-* Command line switch /c:n generates n names in the format [FirstName][space][LastName]
+* Command line switch /c:n generates n names in the format `[FirstName][space][LastName]`
 * Help added
 
 4 September 2012	First Release.
