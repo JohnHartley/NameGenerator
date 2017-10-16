@@ -5,14 +5,14 @@
 Where runs is the number names to generate
 Where format may consist of the folowing items:
 
-Formatting options:
-`[FirstName]`   First (given) name
-`[LastName]`    Last (family) name
-`[FI]`          First Initial
-`[LI]`          Last Initial
-`[space]`       Space character
-`[comma]`       ,
-`[tab]`         Tab character
+Formatting options:  
+`[FirstName]`   First (given) name  
+`[LastName]`    Last (family) name  
+`[FI]`          First Initial  
+`[LI]`          Last Initial  
+`[space]`       Space character  
+`[comma]`       ,  
+`[tab]`         Tab character  
 
 **Examples:**
 
