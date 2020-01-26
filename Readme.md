@@ -1,7 +1,7 @@
 # NameMaker
 *The NameMaker project is designed to generate random names to use for testing.*
 
-**NAMEMAKER `[/C:runs][/F:format]`**
+**NAMEMAKER `[/c:runs][/f:format]`**
 Where runs is the number names to generate
 Where format may consist of the folowing items:
 
@@ -13,6 +13,7 @@ Formatting options:
 `[space]`       Space character  
 `[comma]`       ,  
 `[tab]`         Tab character  
+`[dot]`         . character
 
 **Examples:**
 
@@ -36,6 +37,12 @@ Name Lists Copyright Mark Kantrowitz.
 
 ## Release Notes
 -------------
+2020-01-26 Version 0.4
+Added a dot (.) to formatting
+* Tests now in a separate project
+* Compiled for .Net 4.5.2
+
+
 2017-10-12  Version 0.2 
 * First Prerelease
 * Documentation Update

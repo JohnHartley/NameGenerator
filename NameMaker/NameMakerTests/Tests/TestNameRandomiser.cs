@@ -9,8 +9,9 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using NameMaker;
 
-namespace NameMaker
+namespace NameMakerTests
 {
 	[TestFixture]
 	public class TestNameRandomiser

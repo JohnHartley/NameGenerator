@@ -21,7 +21,7 @@ namespace NameMaker
 		public enum Gender { either, female, male }
 		public enum FormatElement {
 			FirstName,LastName,FirstInitial,LastInitial,
-			comma,space,tab
+			comma,space,tab,dot
 		}
 		private FormatElement [] format;
 		
@@ -69,6 +69,8 @@ namespace NameMaker
 					formatList.Add(FormatElement.space);
 				else if(t.Equals("tab"))
 					formatList.Add(FormatElement.tab);
+				else if(t.Equals("dot"))
+					formatList.Add(FormatElement.dot);
 				else
 					return null;
 			}
@@ -97,6 +99,8 @@ namespace NameMaker
 					result += " ";
 				else if(f == FormatElement.tab)
 					result += "\t";
+				else if(f == FormatElement.dot)
+					result += ".";
 				else if(f == FormatElement.comma)
 					result += ",";
 				else

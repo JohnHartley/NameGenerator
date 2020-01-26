@@ -77,7 +77,7 @@ namespace NameMaker
 		{
 			Console.WriteLine("Name Maker");
 			Console.WriteLine("");
-			Console.WriteLine("NAMEMAKER [/C:runs][/F:format]");
+			Console.WriteLine("NAMEMAKER [/c:runs][/f:format]");
 			Console.WriteLine("");
 			Console.WriteLine("Where runs is the number names to generate");
 			Console.WriteLine("Where format may consist of the folowing items:");
@@ -87,10 +87,20 @@ namespace NameMaker
 			Console.WriteLine("[FI]          First Initial");
 			Console.WriteLine("[LI]          Last Initial");
 			Console.WriteLine("[space]       Space character");
-			Console.WriteLine("[comma]       ,");
+			Console.WriteLine("[comma]       , (comma) character");
 			Console.WriteLine("[tab]         Tab character");
+			Console.WriteLine("[dot]         . (full stop or period) character");
 			Console.WriteLine("");
 			Console.WriteLine("Default format is {0}",defaultFormat);
+			Console.WriteLine("");
+			Console.WriteLine("Examples");
+			Console.WriteLine("");
+			Console.WriteLine("namaker /c:100");
+			Console.WriteLine("Produces 100 random names in the default format");
+			Console.WriteLine("");
+			Console.WriteLine("NameMaker.exe /c:10 /f:[fi][dot][lastname]");
+			Console.WriteLine("Produces ten random names in the format first initial.last name");
+			Console.WriteLine();
 		}
 	}
 }
